@@ -212,6 +212,14 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	\end{enumerate}
 \end{definition}
 
+\begin{definition}
+	设$V$是$\mathbb{F}$上的向量空间，子空间的定义$W$满足如下要求
+	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont\,)}]
+		\item $\mathbf{a+b} \in W, \mathbf{a+b} \in W$
+		\item $r\mathbf{a} \in W, r \in \mathbb{F}$
+	\end{enumerate}
+\end{definition}
+
 \section{Inner Product Spaces}
 实、复内积空间
 \subsection{实内积空间}
@@ -302,7 +310,58 @@ $\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
 \end{definition}
 
 \section{Finite Dimensional Vector Spaces}
+设$V$是$\mathbb{F=F}_p$上的向量空间
+\begin{proposition}
+	$V$中元素的个数恰好是$p^{\mathrm{dim} V}$
+\end{proposition}
+\begin{proposition}
+	设$\mathbb{F}$的characteristic是$p$,那么$|\mathbb{F}|=p^n$,
+	$n$是$\mathbb{F}$在子域$\mathbb{F}'$上的向量空间的dimension,
+	$\mathbb{F}'$由1的所有倍数组成
+\end{proposition}
 
+\begin{example}
+	$\mathbb{F}^{mn}$的基是$E_{ij}, \mathrm{dim}\,\mathbb{F}^{m \times
+	n} = mn$
+\end{example}
+\begin{example}
+	设$\mathbb{F}_s^{n \times n}$表示$\mathbb{F}$上的$n \times n$对称
+	阵,显然$\mathbb{F}_s^{n \times n}$是$\mathbb{F}^{n \times n}$的子空
+	间,$S_{ij} = E_{ij}+E_{ji}(i<j), E_{ii}$是$\mathbb{F}_s^{n \times
+	n}$的基
+\end{example}
+\begin{example}
+	设$\mathbb{F}_{ss}^{n \times n}$是$\mathbb{F}$上的反对称阵
+	,$E_{ij}-E_{ji}$是$\mathbb{F}_{ss}^{n \times n}$的基
+\end{example}
+
+\begin{theorem}
+	\emph{Rank-nullity theorem}
+	设$T:V \rightarrow W$是一个线性映射,$\mathrm{rank}(T)=
+	\mathrm{dim}(\mathrm{im}(T)), \mathrm{nul}(T) =
+	\mathrm{dim}(\mathrm{ker}(T))$
+	\[
+		\mathrm{dim}(\mathrm{im}(T)) + \mathrm{dim}(\mathrm{ker}(T)) =
+		\mathrm{dim}(V)
+	\]
+\end{theorem}
+
+\begin{example}
+	设$V$是$\mathbb{F}_p$上的dimension为$n$的向量空间，$V$的一个含$m$个线性
+	无关元素子集叫做$m$-frame,$V$中$m$-frame的个数为
+	\[
+		(p^n-1)(p^n-p)\cdots(p^n-p^{m-2})(p^n-p^{m-1})
+	\]
+\end{example}
+\begin{example}
+	设$V$是$\mathbb{F}_p$上的dimension为$n$的向量空间,dimension为$m$的
+	子空间数目为
+	\[
+		\dfrac{(p^n-1)(p^n-p)\cdots(p^n-p^{m-2})(p^n-p^{m-1})}
+		{(p^m-1)(p^m-p)\cdots(p^n-p^{m-2})(p^m-p^{m-1})}
+	\]
+	Grassmannian
+\end{example}
 \part{Complex Number}
 \chapter{Representation}
 复数的$a+bi$的矩阵表示为$\left( \begin{array}{cc}
@@ -317,3 +376,4 @@ $wz = (|w|e^{i\mu})(|z|e^{i\theta})$,两个复数的积：实部相乘，argumen
 
 
 \end{document}
+
