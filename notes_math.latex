@@ -1,0 +1,319 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{xeCJK,xunicode}
+\usepackage{syntonly,fontspec,graphicx}
+\usepackage{enumitem,verbatim,array}
+\usepackage[bookmarks]{hyperref}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{scalerel}
+\hypersetup{
+	colorlinks,
+	linkcolor=blue
+}
+%\punctstyle{kaiming}
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+\setlength{\parindent}{2em}%中文缩进两个汉字位
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
+\setCJKmonofont{FangSong}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}{Example}[section]
+\author{陶旭}
+\date{\today}
+\title{数学笔记}
+
+\begin{document}
+\maketitle
+%\tableofcontents
+\part{Linear Algebra}
+\chapter{Matrix Theory}
+\section{Matrix Inverse}
+计算$A^{-1}$的方法之一，设
+\[A=\left(\begin{array}{ccc}
+			1 & 2 & 0\\
+			1 & 3 & 1\\
+			0 & 1 & 2
+\end{array}\right)\]
+\[
+	A^{'} =\left(\begin{array}{cccc}
+			1 & 2 & 0 & a\\
+			1 & 3 & 1 & b\\
+			0 & 1 & 2 & c
+	\end{array}\right)
+\]
+\[
+	rref(A^{'}) = \left(\begin{array}{cccc}
+			1 & 0 & 0 & 5a-4b+2c\\
+			0 & 1 & 0 & -2a+2b-c\\
+			0 & 0 & 1 & a-b+c
+	\end{array}\right)
+\]
+\[
+	A^{-1} = \left(\begin{array}{ccc}
+			5 & -4 & 2\\
+			-2 & 2 & -1\\
+			1 & -1 & 1
+	\end{array}\right)
+\]
+
+如果$P$是一个permutation matrix,那么$P^{-1}=P^T$
+
+设$Q\in\mathbb{R}^{n \times n}$, $Q$为正交阵(\emph{orrhogonal})当且仅当
+$Q^TQ = I_n$,所有正交阵的集合记为$O(n,\mathbb{R})$,$O(n,\mathbb{R})$称为
+正交群
+
+$O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子群的元
+素为
+\[
+	R_\theta = \left( \begin{array}{cc}
+			\cos \theta & -\sin \theta\\
+			\sin \theta & \cos \theta
+	\end{array} \right)
+\]
+\[
+	R_\theta R_\mu = R_\mu R_\theta = R_{\theta+\mu}
+\]
+
+实际上$SO(2)$的正交矩阵是以下一种形式
+\[
+	\left[
+		\begin{array}{cc}
+			\cos\theta & -\sin\theta\\
+			\sin\theta & \cos\theta
+		\end{array}
+	\right]
+\]
+	或
+\[
+	\left[
+		\begin{array}{cc}
+			\cos\theta & \sin\theta\\
+			\sin\theta & -\cos\theta
+		\end{array}
+	\right]
+\]
+要么是rotation matrix，要么是对称阵
+
+\section{$LPDU$分解}
+\subsection{$L,P,D\text{ and }U$}
+\begin{definition}
+	$L,D$是对角元全为1的下、上三角矩阵
+\end{definition}
+\begin{definition}
+	$P$是\emph{partial permutation matrix}
+\end{definition}
+\begin{definition}
+	$D$是\emph{invertible diagonal matrix}
+\end{definition}
+
+\chapter{Fields, Vector Spaces}
+\section{Fields}
+\begin{definition}
+	\emph{域}
+	$\mathbb{F}$ is a set with two binary operations,满足以下条件
+	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont)}]
+		\item $a+b = b+a$ (加法可交换commutative)
+		\item $(a+b)+c = a+(b+c)$(加法结合率assosiative)
+		\item $ab = ba$(乘法交换率)
+		\item $a(bc) = (ab)c$(乘法结合律)
+		\item $a(b+c) = ab+ac$(乘法分配distributive)
+		\item 加法零元$a+0=0$,乘法单位元$1a=a$
+		\item $0 \neq 1$
+		\item $\forall a \in \mathbb{F}$,存在加法逆元$-a$
+		\item $\forall a \neq 0$,存在乘法逆元$a^{-1}$
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	任意域$\mathbb{F}$,加法和乘法单位元是唯一的
+\end{proposition}
+
+\begin{theorem}
+	\emph{(算术基本定理Fundamental Theorom of Arithmetic)}
+	设$m$是一个大于
+	$1$的数，那么$m$可以被唯一因式分解为$m=p_1p_2 \cdots p_k$,其中
+	$p_1,p_2,\ldots , p_k$是素数，
+\end{theorem}
+
+设$m \in \mathbb{Z}$ be positive and square free,$\mathbb{Q}(\sqrt m)$
+表示所有形如$a + b\sqrt m$, $a,b$是任意有理数,$\mathbb{Q}(\sqrt m)$是
+一个域，并且是包含有理数$\mathbb{Q}$和$\sqrt m$的最小域
+
+\begin{definition}
+	仅包含有限元素的域称为Galois field.包含素数个数元素的域称为
+	素域
+\end{definition}
+
+对于$\mathbb{F}_p$, $p-1$的逆元是$p-1$, $1$的逆元是$1$,
+其余元素的逆元成对出现
+\subsection{Characteristic}
+\begin{proposition}
+	如果一个域$\mathbb{F}$有positive characteristic$p$, 那么$p$是一个素
+	数，并且$pa = 0, \forall a \in \mathbb{F}$
+\end{proposition}
+
+\begin{proposition}
+	$\forall a \in \mathbb{F}_p, a^{p-1} = 1$,特别的,$a^{-1} = a^{p-2}$
+\end{proposition}
+
+\begin{definition}
+	$a-b$可以被$c$整除$\Rightarrow a \equiv b \pmod{c}$
+\end{definition}
+
+\begin{definition}
+	\emph{B\'ezout's identity贝组等式}
+	设$a,b$是非零整数，$(a, b) = d \Rightarrow \exists x, y$, 使得
+	\[
+		ax + by = d
+	\]
+\end{definition}
+
+\begin{definition}
+	\emph{Fundamental Theorem of Algebra}\\
+	复系数方程
+	\[
+		f(x) = x^n + a_1x^{n-1} + \cdots + a_{n-1}x + a_n
+	\]
+	在$\mathbb{C}$上有解
+\end{definition}
+
+\begin{definition}
+	\emph{Algebraically closed field}\\
+	\textbf{algebraically closed field} $\mathbb{F}$对任意非常量多项式
+	$\mathbb{F}[x]$有属于$\mathbb{F}$的根
+\end{definition}
+
+\section{Vector Spaces}
+\begin{definition}
+	$\mathbb{F}$是一个域,$V$是一个集合,$\mathbb{F}$上的向量空间$V$满足
+	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont\,)}]
+		\item 向量加法交换率, $\mathbf{a+b = b+a}, \forall
+			\mathbf{a,b} \in V$
+		\item 向量加法结合率, $\mathbf{(a+b)+c = a+(b+c), \forall
+		a,b,c} \in V$
+		\item $V$存在加法单位元, $\mathbf{0+a = a, \forall a} \in V$
+		\item $\forall \mathbf{a} \in V, 1\mathbf{a} = \mathbf{a}$,
+			$1$是$\mathbb{F}$的乘法单位元
+		\item $\forall \mathbf{a} \in V, \exists \mathbf{-v}$, 使得
+			$\mathbf{v+(-v) = 0}$
+		\item 数乘结合率, 若 $r,s \in \mathbb{F},\mathbf{a} \in V$,那么
+			$(rs)\mathbf{a} = r(s\mathbf{a})$
+		\item 数乘分配率,若$r,s \in \mathbb{F}, \mathbf{a, b} \in V$,那
+			么$r(\mathbf{a+b})
+			= r\mathbf{a}+r\mathbf{b}, (r+s)\mathbf{a} =
+			r\mathbf{a}+s\mathbf{a}$
+	\end{enumerate}
+\end{definition}
+
+\section{Inner Product Spaces}
+实、复内积空间
+\subsection{实内积空间}
+\begin{definition}
+	$V$是一个real vector space,$V$被称为内积空间，如果对于$\mathbf{a,b}
+	\in V$, 存在\emph{标量}$\mathbf{(a,b)}$,满足以下条件
+	\begin{enumerate}[label={\normalfont(\arabic*)}]
+		\item $\mathbf{(a,b) = (b,a)}$
+		\item $\mathbf{(a+b,c) = (a,c)+(b,c)}, \forall c \in V$
+		\item $(r\mathbf{a,b)} = r\mathbf{(a,b)}, \forall r \in
+			\mathbb{R}$
+		\item $\mathbf{a \neq 0 \Rightarrow (a, a)}>0$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	向量空间中$\mathbf{a,b}$正交$\equiv \mathbf{(a,b)}=0$
+\end{definition}
+\begin{proposition}
+	\emph{(Pythagoras's Theorem)}
+	$\mathbf{a,b} \in V$正交,当且仅当
+	\[
+		|\mathbf{(a+b)}|^2 = |\mathbf{(a-b)}|^2 = |\mathbf{a}|^2 +
+		|\mathbf{b}|^2
+	\]
+\end{proposition}
+\begin{proposition}
+	\emph{(Cauchy-Schwartz Inequality)}
+	$\forall \mathbf{a,b} \in V$,
+	\begin{equation}\label{eq:cauchy_schwartz_inequality}
+		|\mathbf{(a,b)}| \leq \mathbf{|a||b|}
+	\end{equation}
+	等号成立当且仅当$\mathbf{a}$是$\mathbf{b}$的倍数
+\end{proposition}
+\begin{proof}
+	当$\mathbf{a = \lambda b}$或$\mathbf{b=0}$时，等号显然成立\\
+	当$\mathbf{b \neq 0}$时，设$\mathbf{a = \lambda b + c, (b,
+	c)}=$$0, \lambda$唯一确定，且$\lambda =
+	\mathbf{\tfrac{(a,b)}{(b,b)}}$,由Pythagoras's Theorem知
+	$\mathbf{|a|}^2 = \lambda^2\mathbf{|b|^2 + |c|^2} \Rightarrow
+	\mathbf{|a|^2} \geq \lambda^2\mathbf{|b|^2}$,代入$\lambda$即证
+\end{proof}
+\begin{example}
+	向量空间$C[a,b]$---定义在$[a,b]$上的连续实函数，其内积定义为
+	\[
+		(f,g) = \int_a^b\!f(t)g(t) \,\mathrm{d}t
+	\]
+	应用公式\ref{eq:cauchy_schwartz_inequality}
+	\[
+		\left|\int_a^b\!f(t)g(t)\,\mathrm{d}t\right| \leq
+		\left(\int_a^b\!f(t)^2\,\mathrm{d}t\right)^{1/2}
+		\left(\int_a^b\!g(t)^2\,\mathrm{d}t\right)^{1/2}
+	\]
+\end{example}
+$\mathbf{\frac{(a,b)}{(b,b)}b}$是$\mathbf{a}$在$\mathbf{b}$上的投影,
+$\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
+是$f$在$g$上的投影
+
+\subsection{Hermitian Inner Products}
+\begin{example}
+	\emph{埃尔米特$n$维向量}
+	$\mathbf{w,z} \in \mathbb{C}^n$上的Hermitian内积空间定义为
+	\[
+		\mathbf{w}\bullet\mathbf{z}
+		= \mathbf{w}^T\mathbf{\overline{z}}
+		= (w_1 \; w_2 \cdots w_n) 
+		\begin{pmatrix}
+			\overline{z_1}\\
+			\overline{z_2}\\
+			\overline{z_3}\\
+			\vdots\\
+			\overline{z_n}\\
+		\end{pmatrix}
+		= \sum_{i=1}^n w_i\overline{z_i}
+	\]
+\end{example}
+\begin{definition}
+	设$V$是一个复向量空间,$V$上的Hermitian inner product是为任意
+	$\mathbf{w,z} \in \mathbb{C}$赋予一个标量，满足
+	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont\,)}]
+		\item $\mathbf{(w+w', z) = (w,z)+(w',z) \mbox{ and } (w,z+z')
+			= (w,z)+(w,z')}$
+		\item $\mathbf{(z,w) = \overline{(w,z)}}$
+		\item $(\alpha \mathbf{w,z)} = \alpha\mathbf{(w,z)} \mbox{ and }
+			(\mathbf{w},\beta\mathbf{z}) = \overline{\beta}\mathbf{(w,z)}$
+		\item $\mathbf{w \neq 0} \Rightarrow \mathbf{(w,w)} > 0$
+	\end{enumerate}
+\end{definition}
+
+\section{Finite Dimensional Vector Spaces}
+
+\part{Complex Number}
+\chapter{Representation}
+复数的$a+bi$的矩阵表示为$\left( \begin{array}{cc}
+		a & -b\\
+		b & a
+\end{array}\right)$\\
+$z^{-1} = \frac{\bar{z}}{a^2 + b^2}$\\
+$wz = (|w|e^{i\mu})(|z|e^{i\theta})$,两个复数的积：实部相乘，argument相
+加
+
+
+
+
+\end{document}
