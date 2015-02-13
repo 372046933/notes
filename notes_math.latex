@@ -362,6 +362,111 @@ $\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
 	\]
 	Grassmannian
 \end{example}
+
+\section{Intersecions and Sums of Subspaces}
+\begin{proposition}
+	子空间$W, Y$的交$W \cap Y$也是$V$的子空间，$V$的任意子空间的交仍是
+	子空间
+\end{proposition}
+上述命题是对齐次线性方程组解空间是$\mathbb{F}^n$子空间的一种范化，解空
+间是$\mathbb{F}^n$中超平面的交集
+
+\subsection{Hausdorff Intersection Formula}
+\begin{theorem}
+	如果$W,Y$是有限维向量空间$V$的子空间，那么\[
+		\mathrm{dim}(W+Y) = \mathrm{dim}\,W + \mathrm{dim}\,Y -
+		\mathrm{dim}(W \cap Y)
+	\]
+\end{theorem}
+\begin{corollary}
+	$\mathrm{dim}(W \cap Y) \geq \mathrm{dim}\,W + \mathrm{dim}\,Y -
+	\mathrm{dim}\,V$,当$\mathrm{dim}\,W + \mathrm{dim}\,Y >
+	\mathrm{dim}\,V$时，$\mathrm{dim}(Y \cap W) > 0$
+\end{corollary}
+
+\begin{example}
+	\emph{(Intersections of hyperplanes)}\[
+		\mathrm{dim}(H_1 \cap H_2) \geq (n-1)+(n-1)-n = n-2
+	\]
+\end{example}
+
+\subsection{Direct Sum}
+\begin{definition}
+	\emph{(Direct Sum)}
+	当说$V$是两个子空间$W,Y$的直接和时,如果$V = W+Y$,并且$\forall
+	\mathbf{v} \in V$,表达式$\mathbf{v = w+y}(\mathbf{w} \in W,
+	\mathbf{y} \in Y)$是唯一的,记作$V = W \oplus Y$.更一般的情形：$V$
+	是
+	子空间$V_1,\cdots,V_k$的直接和时,如果$V = \sum V_i$并且$\forall
+	\mathbf{v} \in V$,表达式$\mathbf{v} = \sum \mathbf{v_i}, \exists!
+	\mathbf{v_i} \in V_i$,记作$V = \bigoplus\limits_{i=1}^{k} V_i$
+\end{definition} 
+
+\begin{proposition}
+	$V = W \oplus Y$的充要条件是$V = W+Y, W \cap Y = \{\mathbf{0}\}$,
+	另
+	$V = W \oplus Y$当且仅当$V = W+Y, \mathrm{dim}\,V =
+	\mathrm{dim}\,W +
+	\mathrm{dim}\,Y$
+\end{proposition}
+
+\begin{proposition}
+	$char(\mathbb{F}) \neq 2$,那么$\forall A \in \mathbb{F}^{n \times
+	n}$, $A$可以唯一表示为对称阵和反对称阵的和
+\end{proposition}
+
+\begin{proposition}
+	设$V$是有限维,$V_1,\cdots,V_k$是$V$的子空间, $V = \sum_{i=1}^k
+	V_i$, 那么$V = \bigoplus_{i=1}^k V_i$当且仅当$\mathrm{dim}\, V =
+	\sum_{i=1}^k \mathrm{dim}\, V_i$
+\end{proposition}
+
+\begin{example}
+	\[
+		\mathbb{R}^n = V+V^{\perp}
+	\]
+\end{example} 
+
+\begin{definition}
+	\emph{(External Direct Sum)}\[
+		V \times W = \{\mathbf{(v,w)} | \mathbf{v} \in V,\mathbf{w}
+		\in W\}
+	\]
+	加法定义$\mathbf{(v,w) + (v',w') = (v+v',w+w')}\\$
+	乘法定义$r\mathbf{(v,w)} = (r\mathbf{v}, r\mathbf{w})$
+\end{definition}
+
+\section{Vector Space Quotients}
+\begin{definition}
+	\emph{(relation)}设$S$是一个非空集合,$S \times S$的子集$E$称为$S$
+	上的关系。如果$E$是$S$上的关系，$a,b \in S$,我们说$a,b$有$E$关系即
+	$aEb$,当且仅当 $(a,b) \in E$
+\end{definition}
+$S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b,c\in S$
+下面三个条件成立:
+\begin{enumerate}[label={\normalfont(}\roman*{\normalfont)}]
+	\item (reflexive) $aEa$
+	\item (symmetric) $aEb \Rightarrow bEa$
+	\item (transitive) $aEb, bEc \Rightarrow aEc$
+\end{enumerate}
+若$E$是$S$上的等价关系,$a \in S a$的等价类(equivalence class)是一个集
+合，集合元素$b, b\in S$满足$bEa$
+
+\begin{definition}
+	\emph{(quotient)}$S$上的关系$E$的等价类的集合叫做quotient,记作
+	$S/E$
+\end{definition}
+
+\subsection{Cosets}
+设$V$是$\mathbb{F}$上的向量空间，$W$是一个子空间，定义$V$上的等价关系
+，其等价类叫做$W$在$V$中的cosets.所有cosets的集合记作$V/W$
+\begin{proposition}
+	设$V$是$\mathbb{F}$上的向量空间，$W$是一个子空间，$\forall
+	\mathbf{v, y} \in V, \mathbf{v}E_W\mathbf{y}$当且仅当$\mathbf{v-y}
+	\in W$.那么$E_W$是一个等价关系
+\end{proposition}
+
+
 \part{Complex Number}
 \chapter{Representation}
 复数的$a+bi$的矩阵表示为$\left( \begin{array}{cc}
