@@ -20,7 +20,9 @@
 \newcommand*\conj[1]{\bar{#1}}
 \newcommand*\mean[1]{\bar{#1}}
 \newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -193,7 +195,7 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 \section{Vector Spaces}
 \begin{definition}
 	$\mathbb{F}$是一个域,$V$是一个集合,$\mathbb{F}$上的向量空间$V$满足
-	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont\,)}]
+	\begin{enumerate}[label=(\roman*)]
 		\item 向量加法交换率, $\mathbf{a+b = b+a}, \forall
 			\mathbf{a,b} \in V$
 		\item 向量加法结合率, $\mathbf{(a+b)+c = a+(b+c), \forall
@@ -214,7 +216,7 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 
 \begin{definition}
 	设$V$是$\mathbb{F}$上的向量空间，子空间的定义$W$满足如下要求
-	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont\,)}]
+	\begin{enumerate}[label=(\roman*)]
 		\item $\mathbf{a+b} \in W, \mathbf{a+b} \in W$
 		\item $r\mathbf{a} \in W, r \in \mathbb{F}$
 	\end{enumerate}
@@ -299,7 +301,7 @@ $\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
 \begin{definition}
 	设$V$是一个复向量空间,$V$上的Hermitian inner product是为任意
 	$\mathbf{w,z} \in \mathbb{C}$赋予一个标量，满足
-	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont\,)}]
+	\begin{enumerate}[label=(\roman*)]
 		\item $\mathbf{(w+w', z) = (w,z)+(w',z) \mbox{ and } (w,z+z')
 			= (w,z)+(w,z')}$
 		\item $\mathbf{(z,w) = \overline{(w,z)}}$
@@ -438,7 +440,7 @@ $\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
 
 \section{Vector Space Quotients}
 \begin{definition}
-	\emph{(relation)}设$S$是一个非空集合,$S \times S$的子集$E$称为$S$
+	(relation)设$S$是一个非空集合,$S \times S$的子集$E$称为$S$
 	上的关系。如果$E$是$S$上的关系，$a,b \in S$,我们说$a,b$有$E$关系即
 	$aEb$,当且仅当 $(a,b) \in E$
 \end{definition}
@@ -449,7 +451,7 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 	\item (symmetric) $aEb \Rightarrow bEa$
 	\item (transitive) $aEb, bEc \Rightarrow aEc$
 \end{enumerate}
-若$E$是$S$上的等价关系,$a \in S a$的等价类(equivalence class)是一个集
+若$E$是$S$上的等价关系,$a \in S, a$的等价类(equivalence class)是一个集
 合，集合元素$b, b\in S$满足$bEa$
 
 \begin{definition}
@@ -464,7 +466,110 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 	设$V$是$\mathbb{F}$上的向量空间，$W$是一个子空间，$\forall
 	\mathbf{v, y} \in V, \mathbf{v}E_W\mathbf{y}$当且仅当$\mathbf{v-y}
 	\in W$.那么$E_W$是一个等价关系
+	\begin{enumerate}[label={\normalfont(}\alph*{\normalfont)}]
+		\item $[\mathbf{v}] = \mathbf{v}+W$
+		\item $\forall \mathbf{v,y} \in V, \mathbf{v}+W = \mathbf{y}+W
+			\mbox{ or } (\mathbf{v}+W) \cap (\mathbf{y}+W) = \emptyset$
+		\item {\normalfont The set of distinct cosets of $W$ is a
+			\emph{partition} of $V$}
+	\end{enumerate}
 \end{proposition}
+
+\begin{proposition}
+	$W$在$V$中的cosets的形式是$\mathbf{v}+W, \mathbf{v} \in V$,特别的
+	,$\mathbf{v}+W = \mathbf{y}+W \Leftrightarrow \mathbf{v-w} \in W$
+\end{proposition}
+\begin{proposition}
+	$\mathrm{codim}\,(W) = \mathrm{dim}\,(V/W) = \mathrm{dim}\,V -
+	\mathrm{dim}\,W$
+\end{proposition}
+
+\begin{example}
+	设$C(\mathbb{R})$是$\mathbb{R}$上的连续函数空间,$\mathcal{P}$是包含
+	多项式的子空间，给定$f \in C(\mathbb{R})$,$f$的coset是\[
+		f+\mathcal{P} = \{f+p : p \mbox{ \normalfont is a polynomial}\}
+	\]
+	$f+\mathcal{P} = g+\mathcal{P}$当且仅当$f-g$是多项式，因此
+	$f+\mathcal{P}$可以认为是$f \mbox { \normalfont modulo the
+	polynomials}$，即和$f$相差仅为多项式的函数构成的等价类
+\end{example}
+
+\chapter{Linear Coding Theory}
+\section{Linear Codes}
+\begin{definition}
+	($p$-ary code) $p$-ary code是$V(n,p)$的非空子集$C$, $n$称为$C$的
+	\emph{length}, $C$的元素叫做\emph{codeword}
+\end{definition}
+\begin{definition}
+	$p$-ary linear $[n,k]$-code $C$的\emph{generating matrix}是
+	$\mathbb{F}_p$上的$k \times n$矩阵，形如$M = (I_k|A)$，使得$C =
+	\mbox{row}(M)$
+\end{definition}
+\section{Error-Correcting Codes}
+\subsection{Hamming Distance}
+\begin{proposition}
+	设$\mathbf{u,v,w} \in V(n,p)$，那么
+	\begin{enumerate}[label=(\roman*{\normalfont)}]
+		\item $d(\mathbf{u,v}) \geq 0$，等号仅在$\mathbf{u=v}$时成立
+		\item $d(\mathbf{u,v}) = d(\mathbf{v,u})$
+		\item $d(\mathbf{u,v}) \leq d(\mathbf{u,w}) + d(\mathbf{w,v})$
+	\end{enumerate}
+\end{proposition}
+通常，若$S$是集合，满足(i),(ii),(iii)的函数$d:S \times S \rightarrow
+\mathbb{R}$称为$S$上的\emph{metric}
+\begin{proposition}
+	$(n, M, d)$-code $C$最多可以检测到$d-1$个错误，做多可以纠正$e =
+	[(d-1)/2]$个错误
+\end{proposition}
+
+\section{Codes With Large Minimal Distance}
+\begin{definition}
+	$\mathbb{R}$上$n \times n$矩阵$H$，其每一项都是$\pm 1$，若$HH^T =
+	nI_n$，则此矩阵称为\emph{Hadamard}
+\end{definition}
+
+\chapter{Linear Transformations}
+\section{Definition and General Properties}
+\begin{definition}
+	设$V,W$是$\mathbb{F}$上的向量空间，变换$T:V \rightarrow W$称为
+	\emph{linear}当
+	\begin{enumerate}[label=(\arabic*)]
+		\item $T(\mathbf{x+y}) = T(\mathbf{x}) + T(\mathbf{y})$ for
+			all $\mathbf{x,y} \in V$
+		\item
+			$T(r \mathbf{x}) = rT(\mathbf{x})$ for all $r \in
+			\mathbb{F} \mbox{ and } \mathbf{x} \in V$
+	\end{enumerate}
+\end{definition}
+\begin{definition}
+	\emph{semisimple} 线性变换$T:V \rightarrow V$称为是
+	\emph{semisimple}如果存在$T(\mathbf{v}_i) = \lambda_i
+	\mathbf{v}_i,$，其中$\mathbf{v}_1,\cdots,\mathbf{v}_n$是$V$的基
+	，$\lambda_i \in \mathbb{F}$
+\end{definition}
+\begin{proposition}
+	设$V,W$是$\mathbb{F}$上的向量空间，$L(V,W)$表示所有的线性变换$T:V
+	\rightarrow W$的集合，$L(V,W)$是一个向量空间，若$\mathrm{dim\,} V =
+	n, \mathrm{dim\,}W = m$，那么$L(V,W)$的维度是$mn$
+\end{proposition}
+\begin{proposition}
+	每个线性变换$T:\mathbb{F}^n \rightarrow \mathbb{F}^m$对应一个$m
+	\times n$矩阵$A$，其第$i$列是$T(e_i)$
+\end{proposition}
+\begin{proof}
+	$\forall \mathbf{x} \in \mathbb{F}$，可唯一表达为\[
+		\mathbf{x} = \sum_{i=1}^n x_i \mathbf{e}_i
+	\]因此\[
+		T(\mathbf{x}) = T(\sum_{i=1}^n x_i \mathbf{e}_i) =
+		\sum_{i=1}^n x_i T(\mathbf{e}_i)
+	\]
+\end{proof}
+\begin{definition}\emph{(Orthogonal Transformation)}
+	$T: V \rightarrow V$，对任意$\mathbf{u,v} \in V$，满足
+	$(\mathbf{u, v}) = (T(\mathbf{u}), T(\mathbf{v}))$
+\end{definition}
+
+
 
 
 \part{Complex Number}
