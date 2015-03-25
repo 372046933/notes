@@ -115,6 +115,12 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	$D$是\emph{invertible diagonal matrix}
 \end{definition}
 
+\chapter{Groups}
+\section{Subgroup}
+\begin{definition}\emph{special linear group}
+	特征值为1的$n \times n$矩阵是$GL_n$的子群，称为special linear
+	group，记为$SL_n$
+\end{definition}
 \chapter{Fields, Vector Spaces}
 \section{Fields}
 \begin{definition}
@@ -564,10 +570,47 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 		\sum_{i=1}^n x_i T(\mathbf{e}_i)
 	\]
 \end{proof}
-\begin{definition}\emph{(Orthogonal Transformation)}
+\begin{definition}(\emph{Orthogonal Transformation})
 	$T: V \rightarrow V$，对任意$\mathbf{u,v} \in V$，满足
 	$(\mathbf{u, v}) = (T(\mathbf{u}), T(\mathbf{v}))$
 \end{definition}
+\begin{proposition}
+	projection $P_a(\mathbf{x}) = \mathbf{\left( \dfrac{a \cdot x}{a
+	\cdot a} \right)a}$，任意投影矩阵$P$满足$P^2 = P$
+\end{proposition}
+
+\section{Matrices for Linear Transformations}
+\begin{theorem}
+	设$T: V \rightarrow W$是一个线性变换，$V$的基为$\mathcal{B} =
+	{\mathbf{v}_1, \mathbf{v}_2, \cdots, \mathbf{v}_n}$，$W$的基为
+	$\mathcal{B}' = {\mathbf{w}_1, \mathbf{w}_2, \cdots,
+	\mathbf{w}_n}$，每个 $T(\mathbf{v}_j)$可以唯一表
+	达为\[ T(\mathbf{v_j}) = (\mathbf{w}_1, \mathbf{w}_2, \cdots
+		\mathbf{w}_m) \left( \begin{array}{ccc}
+				a_{1j}\\
+				a_{2j}\\
+				\vdots\\
+				a_{mj}
+		\end{array} \right) = \sum_{i=1}^m a_{ij}\mathbf{w}_i
+	\]
+	设$\mathbf{v} = x_1\mathbf{v}_1 + x_2\mathbf{v}_2 + \cdots +
+	x_n\mathbf{v}_n$，有\[
+		T(\mathbf{v}) = (\mathbf{w}_1, \mathbf{w}_2, \cdots,
+		\mathbf{w}_m) \left( \begin{array}{cccc}
+				a_{11} & a_{12}& \cdots & a_{1n}\\
+				a_{21} & a_{22}& \cdots & a_{2n}\\
+				\vdots &\vdots &\vdots &\vdots \\
+				a_{m1} & a_{m2}& \cdots & a_{mn}
+		\end{array} \right) \left( \begin{array}{c}
+				x_1\\
+				x_2\\
+				\vdots\\
+				x_n
+			\end{array}
+		\right)
+	\]
+	当$\mathcal{B,B'}$给定时，$T$由$A$决定
+\end{theorem}
 
 
 
