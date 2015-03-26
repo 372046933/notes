@@ -121,6 +121,47 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	特征值为1的$n \times n$矩阵是$GL_n$的子群，称为special linear
 	group，记为$SL_n$
 \end{definition}
+\begin{theorem}
+	设$S$是$\mathbb{Z}^+$的子群，那么$S$只有两种形式，一是当然群$\{0\}$
+	，一是$\mathbb{Z}a$，其中$a$是$S$中的最小正整数。
+\end{theorem}
+\begin{proposition}
+	设$a,b$是非零整数，$d = \mathrm{gcd}(a,b)$，易见$\mathbb{Z}d =
+	\mathbb{Z}a + \mathbb{Z}b$，并且存在整数$r,s$，使得$d = ra + sb$
+\end{proposition}
+若$a,b$互素，则$\mathbb{Z}a + \mathbb{Z}b = \mathbb{Z}$
+\begin{corollary}
+	$a,b$互素当且仅当存在整数$r,s$，使得$ra + sb = 1$
+\end{corollary}
+\begin{proposition}
+	设$a,b$为非零整数，$m = \mathrm{lcd}(a,b)$，那么$\mathbb{Z}a \cap
+	\mathbb{Z}b = \mathbb{Z}m$
+\end{proposition}
+\begin{corollary}
+	$ab = \mathrm{gcd}(a,b) \times \mathrm{lcm}(a,b)$
+\end{corollary}
+
+\begin{definition}\emph{循环群cyclic group}
+	由群$G$的元素$x$生成的循环群$H = \{\cdots, x^{-2}, x^{-1}, 1, x,
+	x^2, \cdots \}$，记作$<x>$
+\end{definition}
+\begin{proposition} 设$<x>$是由$x \in G$生成的循环群，$S$为满足$x^k =
+	1$的所有整数$k$ 构成的集合。那么
+	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont)}]
+		\item $S$ 是$\mathbb{Z}^+$的子群
+		\item $x^r = x^s (r \geq s)$ 当且仅当 $x^{r-s} = 1$，即$r-s
+			\in S$
+		\item 若$S$不是当然群，那么$S = \mathbb{Z}n$，并且$1, x, x^2,
+			\ldots, x^{n-1}$是$<x>$中的不 同元素，$<x>$的阶为$n$
+	\end{enumerate}
+\end{proposition}
+群$<x> = \{1, x, \ldots, x^{n-1}\}$称为cyclic group of order $n$，``循
+环''的意思是说，连续乘以$x$的结果在这$n$个元素中循环
+\section{Homomorphism}
+\begin{definition}
+	\emph{同态}$\varphi:G \rightarrow G'$是一个从$G$到$G'$的映射，满足
+	$\varphi(ab) = \varphi(a)\varphi(b)$
+\end{definition}
 \chapter{Fields, Vector Spaces}
 \section{Fields}
 \begin{definition}
