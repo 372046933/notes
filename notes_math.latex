@@ -126,6 +126,20 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	，一是$\mathbb{Z}a$，其中$a$是$S$中的最小正整数。
 \end{theorem}
 \begin{proposition}
+	设$a,b$是非零整数，$d$是生成子群$a\mathbb{Z}+b\mathbb{Z}$的正整数，
+	那么\begin{enumerate}[label={\normalfont(}\roman*{\normalfont)}]
+		\item\label{itm:1} 存在$r,s$使得$d = ar + sb$
+		\item\label{itm:2} $d$整除$a,b$
+		\item\label{itm:3} 若$e$整除$a,b$，则也整除$d$
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\ref{itm:1}仅仅是说$d$在$a\mathbb{Z}+b\mathbb{Z}$中，易见。
+	$a,b \in a\mathbb{Z}+b\mathbb{Z}$，所以\ref{itm:2}易证。最后，若$e$
+	整除$a,b$，则$a,b$在$e\mathbb{Z}$中，进一步说，任意$ra+sb$在
+	$e\mathbb{Z}$中，这正是$d$的形式，所以$e$整除$d$
+\end{proof}
+\begin{proposition}
 	设$a,b$是非零整数，$d = \mathrm{gcd}(a,b)$，易见$\mathbb{Z}d =
 	\mathbb{Z}a + \mathbb{Z}b$，并且存在整数$r,s$，使得$d = ra + sb$
 \end{proposition}
@@ -157,11 +171,47 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 \end{proposition}
 群$<x> = \{1, x, \ldots, x^{n-1}\}$称为cyclic group of order $n$，``循
 环''的意思是说，连续乘以$x$的结果在这$n$个元素中循环
+
+\begin{definition}\emph{normal subgroup}
+	满足下列条件的$G$的子群$N$称为正规子群：$\forall a \in N \mbox{ and
+	} b \in G $,其共轭$bab^{-1} \in N$。特别的任意abelian群的子群是正规
+	子群
+\end{definition}
+每个群同态$\varphi$确定了两个重要子群，\emph{image}和\emph{kernel}，
+\begin{align*}
+	\mathrm{im}\;\varphi &= \{ x \in G' \mid x = \varphi(a) \mbox{ for some
+	} a \in G\}\\
+	\mathrm{ker}\;\varphi &= \{a \in G \mid \varphi(a) = 1\}
+\end{align*}
+行列式同态的kernel是所有行列式为1的子群，这个子群称为\emph{special
+linear group }$SL_n(\mathbb{R})$。
+
+kernel除了是子群，还有一个重要性质，若$a \in \mathrm{ker}\;\varphi $那么
+$bab^{-1} \in \mathrm{ker}\;\varphi$
+\begin{definition}\emph{center}
+	群$G$的\emph{中心}记为$Z$或$Z(G)$，\[
+		Z = \{ z \in G \mid zx = xz, \mbox{for all } x \in G\}
+	\]
+\end{definition}
 \section{Homomorphism}
 \begin{definition}
 	\emph{同态}$\varphi:G \rightarrow G'$是一个从$G$到$G'$的映射，满足
 	$\varphi(ab) = \varphi(a)\varphi(b)$
 \end{definition}
+
+\section{Equvalence Relations}
+\begin{proposition}
+	设$\varphi:G \rightarrow G'$是一个kernel为$N$的群同态，$a,b \in G$，
+	那么$\varphi(a) = \varphi(b)$当且仅当存在$n \in N$使得$b = an$，或者
+	等价的，$a^{-1}b \in N$
+\end{proposition}
+\begin{corollary}
+	群同态$\varphi:G \rightarrow G'$是单射的，当且仅当其kernel是平凡子群
+	$\{1\}$
+\end{corollary}
+
+
+
 \chapter{Fields, Vector Spaces}
 \section{Fields}
 \begin{definition}
@@ -209,7 +259,7 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 \end{proposition}
 
 \begin{proposition}
-	$\forall a \in \mathbb{F}_p, a^{p-1} = 1$,特别的,$a^{-1} = a^{p-2}$
+	$\forall a \in \mathbb{F}_p,\quad a^{p-1} = 1$,特别的,$a^{-1} = a^{p-2}$
 \end{proposition}
 
 \begin{definition}
