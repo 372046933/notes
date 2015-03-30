@@ -199,7 +199,7 @@ $bab^{-1} \in \mathrm{ker}\;\varphi$
 	$\varphi(ab) = \varphi(a)\varphi(b)$
 \end{definition}
 
-\section{Equvalence Relations}
+\section{Equivalence Relations}
 \begin{proposition}
 	设$\varphi:G \rightarrow G'$是一个kernel为$N$的群同态，$a,b \in G$，
 	那么$\varphi(a) = \varphi(b)$当且仅当存在$n \in N$使得$b = an$，或者
@@ -210,6 +210,46 @@ $bab^{-1} \in \mathrm{ker}\;\varphi$
 	$\{1\}$
 \end{corollary}
 
+\section{Coset}
+\begin{theorem}
+	$\forall g \in G, gH = H$ if and only if $g \in H$
+\end{theorem}
+\begin{proof}
+	必要性易见。$gH \subset H$易见。$\forall h \in H \quad h =
+	gg^{-1}h, \because g \in H，\therefore g^{-1}h \in H,h \in gH, H
+	\subset gH.\therefore gH = H$
+\end{proof}
+\begin{theorem}
+	两个左$H-cosets$要么a相同，要么不想交，$H-cosets$是$G$的一个划分
+\end{theorem}
+\begin{theorem}
+	设$H$是$G$的子群，任意在$G$的左$H-coset$与$H$之间是双射的，特别的
+	，当$H$是有限群时，$H$的所有cosets与$H$的阶相同
+\end{theorem}
+\begin{definition}
+	设$H$是$G$的子群，$H$在$G$中的左陪集数目叫做\emph{index}，记作
+	$[G:H]$
+\end{definition}
+\begin{theorem}
+	若$H$是有限群$G$的子群，那么$[G:H] = (\#G)/(\#H)$
+\end{theorem}
+\begin{theorem}\emph{Lagrange's Theorem}
+	任意有限群的子群的阶整除有限群的阶
+\end{theorem}
+\begin{example}
+	$\forall a,b \in \mathbb{Z}^+ \quad \displaystyle \frac{(ab)!}{(a!)^b},
+	\frac{(ab)!}{(a!)^b b!}$都是整数
+\end{example}
+\begin{proof}
+	将从1到$ab$的整数写成如下形式\[
+		1,2,\ldots,a; a+1,\ldots, 2a; 2a+1,\ldots,
+		3a;(b-1)a+1,\ldots,ba
+	\]
+	分子相当于$S_{ab}$，分子是按分号分隔的子群的大小
+\end{proof}
+\begin{theorem}
+	设$H,K$是有限群$G$的两个阶互素的子群，那么$H \cap K = \{e\}$
+\end{theorem}
 
 
 \chapter{Fields, Vector Spaces}
