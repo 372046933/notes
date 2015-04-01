@@ -159,6 +159,10 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	由群$G$的元素$x$生成的循环群$H = \{\cdots, x^{-2}, x^{-1}, 1, x,
 	x^2, \cdots \}$，记作$<x>$
 \end{definition}
+\begin{definition}
+	交错群\emph{alternating group}是有限集的偶置换的集合\\$A_n =
+	\left\{\sigma \in S_n : sgn(\sigma) = 1\right\}$
+\end{definition}
 \begin{proposition} 设$<x>$是由$x \in G$生成的循环群，$S$为满足$x^k =
 	1$的所有整数$k$ 构成的集合。那么
 	\begin{enumerate}[label={\normalfont(}\roman*{\normalfont)}]
@@ -170,7 +174,8 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	\end{enumerate}
 \end{proposition}
 群$<x> = \{1, x, \ldots, x^{n-1}\}$称为cyclic group of order $n$，``循
-环''的意思是说，连续乘以$x$的结果在这$n$个元素中循环
+环''的意思是说，连续乘以$x$的结果在这$n$个元素中循环。循环群与
+$\mathbb{Z}^+$同构
 
 \begin{definition}\emph{normal subgroup}
 	满足下列条件的$G$的子群$N$称为正规子群：$\forall a \in N \mbox{ and
@@ -236,6 +241,10 @@ $bab^{-1} \in \mathrm{ker}\;\varphi$
 \begin{theorem}\emph{Lagrange's Theorem}
 	任意有限群的子群的阶整除有限群的阶
 \end{theorem}
+\begin{corollary}
+	设$G$的阶为素数，$a \in G, a \neq 1$，那么$G =
+	\{1,a,\ldots,a^{p-1}\}$是一个循环群
+\end{corollary}
 \begin{example}
 	$\forall a,b \in \mathbb{Z}^+ \quad \displaystyle \frac{(ab)!}{(a!)^b},
 	\frac{(ab)!}{(a!)^b b!}$都是整数
@@ -250,6 +259,12 @@ $bab^{-1} \in \mathrm{ker}\;\varphi$
 \begin{theorem}
 	设$H,K$是有限群$G$的两个阶互素的子群，那么$H \cap K = \{e\}$
 \end{theorem}
+设$\varphi:G \rightarrow G'$是一个同态，易见$\mathrm{ker} \varphi$的左
+陪集是映射$\varphi$的fiber，\begin{align*}
+	[G:\mathrm{ker}\,\varphi] &= |\mathrm{im}\,\varphi|\\
+	\Rightarrow |G| &= |\mathrm{ker}\,\varphi| \cdot
+	|\mathrm{im}\,\varphi| 
+\end{align*}
 
 
 \chapter{Fields, Vector Spaces}
