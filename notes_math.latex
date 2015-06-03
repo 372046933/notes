@@ -117,8 +117,11 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 
 \chapter{Groups}
 \section{Subgroup}
+\begin{definition}\emph{symmetric group}
+	对称群是集合到自身的所有置换构成的群，通常记作$S_n$
+\end{definition}
 \begin{definition}\emph{special linear group}
-	特征值为1的$n \times n$矩阵是$GL_n$的子群，称为special linear
+	行列式为1的$n \times n$矩阵是$GL_n$的子群，称为special linear
 	group，记为$SL_n$
 \end{definition}
 \begin{theorem}
