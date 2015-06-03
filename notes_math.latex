@@ -184,20 +184,21 @@ $\mathbb{Z}^+$同构
 \end{definition}
 每个群同态$\varphi$确定了两个重要子群，\emph{image}和\emph{kernel}，
 \begin{align*}
-	\mathrm{im}\;\varphi &= \{ x \in G' \mid x = \varphi(a) \mbox{ for some
+	\mathrm{im}\,\varphi &= \{ x \in G' \mid x = \varphi(a) \mbox{ for some
 	} a \in G\}\\
-	\mathrm{ker}\;\varphi &= \{a \in G \mid \varphi(a) = 1\}
+	\mathrm{ker}\,\varphi &= \{a \in G \mid \varphi(a) = 1\}
 \end{align*}
 行列式同态的kernel是所有行列式为1的子群，这个子群称为\emph{special
 linear group }$SL_n(\mathbb{R})$。
 
-kernel除了是子群，还有一个重要性质，若$a \in \mathrm{ker}\;\varphi $那么
-$bab^{-1} \in \mathrm{ker}\;\varphi$
+kernel除了是子群，还有一个重要性质，若$a \in \mathrm{ker}\,\varphi $那么
+$bab^{-1} \in \mathrm{ker}\;\varphi$，即$ker\,\varphi$是正规子群
 \begin{definition}\emph{center}
 	群$G$的\emph{中心}记为$Z$或$Z(G)$，\[
 		Z = \{ z \in G \mid zx = xz, \mbox{for all } x \in G\}
 	\]
 \end{definition}
+center也是一个正规子群
 \section{Homomorphism}
 \begin{definition}
 	\emph{同态}$\varphi:G \rightarrow G'$是一个从$G$到$G'$的映射，满足
@@ -265,6 +266,11 @@ $bab^{-1} \in \mathrm{ker}\;\varphi$
 	\Rightarrow |G| &= |\mathrm{ker}\,\varphi| \cdot
 	|\mathrm{im}\,\varphi| 
 \end{align*}
+
+\section{Restriction to a Subgroup}
+两个子群的交集$K \cap H$是$H$的子群。若$K$是$G$的正规子群，那么$K \cap
+H$是$H$的正规子群
+
 
 
 \chapter{Fields, Vector Spaces}
