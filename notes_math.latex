@@ -65,13 +65,14 @@
 	\end{array}\right)
 \]
 
-如果$P$是一个permutation matrix,那么$P^{-1}=P^T$
+如果$P$是一个permutation matrix,那么$P = S_1S_2\cdots S_k,
+P^{-1}=P^T$, $S_i$是初等行交换矩阵
 
 设$Q\in\mathbb{R}^{n \times n}$, $Q$为正交阵(\emph{orrhogonal})当且仅当
 $Q^TQ = I_n$,所有正交阵的集合记为$O(n,\mathbb{R})$,$O(n,\mathbb{R})$称为
-正交群
+正交群，易见$P(n)$是$O(n,\mathbb{R})$的子群
 
-$O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子群的元
+$O(2,\mathbb{R})$上的一个子群记为$SO(2)$,称为rotation group，这个子群的元
 素为
 \[
 	R_\theta = \left( \begin{array}{cc}
@@ -109,10 +110,26 @@ $O(2,\mathbb{R})$上的正交群记为$SO(2)$,称为rotation group，这个子�
 	$L,D$是对角元全为1的下、上三角矩阵
 \end{definition}
 \begin{definition}
-	$P$是\emph{partial permutation matrix}
+	$P$是\emph{partial permutation matrix}记作$\Pi_n$
 \end{definition}
 \begin{definition}
-	$D$是\emph{invertible diagonal matrix}
+	$D$是\emph{invertible diagonal matrix}记作$\mathcal{D}_n$
+\end{definition}
+
+\begin{proposition}
+	所有的下三角unipotent矩阵集合$\mathcal{L}_n$是$GL(n,\mathbb{R})$的
+	子群，同理可证$\mathcal{U}_n$
+\end{proposition}
+
+\begin{proposition}
+	若可逆矩阵$A$可分解为$LDU$（即$P=I_n$），那么$L,D,U$都是唯一的
+\end{proposition}
+\begin{proposition}
+	若可逆对称阵$A = LDU$， 那么$A = (LDU)^T = U^TDL^T = LDL^T$
+\end{proposition}
+
+\begin{definition}\emph{Cholosky decomposition}
+	Hermitian、正定矩阵$A=LDU$可以被分解为$A = CC^T$，$C$是下三角矩阵
 \end{definition}
 
 \chapter{Groups}
