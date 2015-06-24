@@ -327,11 +327,11 @@ H$是$H$的正规子群
 一个域，并且是包含有理数$\mathbb{Q}$和$\sqrt m$的最小域
 
 \begin{definition}
-	仅包含有限元素的域称为Galois field.包含素数个数元素的域称为
-	素域
+	仅包含有限元素的域称为Galois field.包含素数个数元素的域称为 \emph{素
+	域}
 \end{definition}
 
-对于$\mathbb{F}_p$, $p-1$的逆元是$p-1$, $1$的逆元是$1$,
+对于$\mathbb{F}_p$, $p-1$的乘法逆元是$p-1$, 1的乘法逆元是1,
 其余元素的逆元成对出现
 \subsection{Characteristic}
 \begin{proposition}
@@ -340,6 +340,12 @@ H$是$H$的正规子群
 \end{proposition}
 
 \begin{proposition}
+	若域$\mathbb{F}$的characteristic $p>0$，那么对任意$a_1, a_2, \cdots
+	a_n \in \mathbb{F}$\[
+		(a_1 + \cdots + a_n)^p = a_1^p + \cdots + a_n^p
+	\]
+\end{proposition}
+\begin{proposition}\emph{(费马小定理)}
 	$\forall a \in \mathbb{F}_p,\quad a^{p-1} = 1$,特别的,$a^{-1} = a^{p-2}$
 \end{proposition}
 
@@ -349,21 +355,38 @@ H$是$H$的正规子群
 
 \begin{definition}
 	\emph{B\'ezout's identity贝组等式}
-	设$a,b$是非零整数，$(a, b) = d \Rightarrow \exists x, y$, 使得
-	\[
+	设$a,b$是非零整数，$(a, b) = d \Rightarrow \exists x, y$, 使得 \[
 		ax + by = d
 	\]
 \end{definition}
 
 \begin{definition}
 	\emph{Fundamental Theorem of Algebra}\\
-	复系数方程
-	\[
+	复(实)系数方程 \[
 		f(x) = x^n + a_1x^{n-1} + \cdots + a_{n-1}x + a_n
 	\]
-	在$\mathbb{C}$上有解
+	在$\mathbb{C}$上有$n$个根
 \end{definition}
 
+\subsection{Complex Number}
+$z = a+ib$的\emph{共轭conjudate}$\conj{z} = a-ib$，并且
+\begin{align*}
+	\overline{w+z} &= \overline{w} + \overline{z}\\
+	\overline{wz} &= \overline{w}\,\overline{z}
+\end{align*}
+$z^{-1} = \frac{\overline{z}}{|z|^2}$
+
+$e^{i\theta} := \cos\theta + i\sin\theta$
+\begin{proposition}
+	任意$z\in\mathbb{C}$可以表示为$z = |z|e^{i\theta}$
+\end{proposition}
+
+\begin{proposition}
+	设$p(x) in \mathbb{R}[x]$，即实系数多项式$p(x) = 0$的根成共轭出现
+\end{proposition}
+\begin{proof}
+	$p(x) = 0 = \overline{p(x)} = p(\overline{x})$
+\end{proof}
 \begin{definition}
 	\emph{Algebraically closed field}\\
 	\textbf{algebraically closed field} $\mathbb{F}$对任意非常量多项式
