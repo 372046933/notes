@@ -437,15 +437,19 @@ $e^{i\theta} := \cos\theta + i\sin\theta$
 		\item $\mathbf{a \neq 0 \Rightarrow (a, a)}>0$
 	\end{enumerate}
 \end{definition}
+$\mathbf{v} \in V$的长度$|\mathbf{v}|$定义为$|\mathbf{v}| =
+\sqrt{(\mathbf{v, v})}$
+
+$\mathbf{a,b}$之间的距离$d\mathbf{(a,b) =
+|a-b|}$
 
 \begin{definition}
 	向量空间中$\mathbf{a,b}$正交$\equiv \mathbf{(a,b)}=0$
 \end{definition}
 \begin{proposition}
 	\emph{(Pythagoras's Theorem)}
-	$\mathbf{a,b} \in V$正交,当且仅当
-	\[
-		|\mathbf{(a+b)}|^2 = |\mathbf{(a-b)}|^2 = |\mathbf{a}|^2 +
+	$\mathbf{a,b} \in V$正交,当且仅当\[
+		|\mathbf{a+b}|^2 = |\mathbf{a-b}|^2 = |\mathbf{a}|^2 +
 		|\mathbf{b}|^2
 	\]
 \end{proposition}
@@ -466,12 +470,16 @@ $e^{i\theta} := \cos\theta + i\sin\theta$
 	\mathbf{|a|^2} \geq \lambda^2\mathbf{|b|^2}$,代入$\lambda$即证
 \end{proof}
 \begin{example}
-	向量空间$C[a,b]$---定义在$[a,b]$上的连续实函数，其内积定义为
-	\[
+	$\mathbb{R}^n$上的Cauchy-Schwartz不等式为\[
+		|\sum_{i=1}^n a_ib_i| \leq (\sum_{i=1}^na_i^2)^{1/2}
+		\sum_{i=1}^n b_i^2)^{1/2}
+	\]
+\end{example}
+\begin{example}
+	向量空间$C[a,b]$---定义在$[a,b]$上的连续实函数，其内积定义为\[
 		(f,g) = \int_a^b\!f(t)g(t) \,\mathrm{d}t
 	\]
-	应用公式\ref{eq:cauchy_schwartz_inequality}
-	\[
+	应用公式\ref{eq:cauchy_schwartz_inequality}\[
 		\left|\int_a^b\!f(t)g(t)\,\mathrm{d}t\right| \leq
 		\left(\int_a^b\!f(t)^2\,\mathrm{d}t\right)^{1/2}
 		\left(\int_a^b\!g(t)^2\,\mathrm{d}t\right)^{1/2}
@@ -509,6 +517,15 @@ $\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
 		\item $(\alpha \mathbf{w,z)} = \alpha\mathbf{(w,z)} \mbox{ and }
 			(\mathbf{w},\beta\mathbf{z}) = \overline{\beta}\mathbf{(w,z)}$
 		\item $\mathbf{w \neq 0} \Rightarrow \mathbf{(w,w)} > 0$
+	\end{enumerate}
+\end{definition}
+
+\section{子空间和Spanning Sets}
+\begin{definition}(\emph{Subspace})
+	设$V$是$\mathbb{F}$上的向量空间，当下面两个条件成立时，非空子集$W$称
+	为是$V$的子空间\begin{enumerate}
+		\item $\mathbf{a+b} \in W, \quad \forall \mathbf{a,b} \in W$
+		\item $r\mathbf{a} \in W, \quad \forall r \in \mathbb{F}$
 	\end{enumerate}
 \end{definition}
 
