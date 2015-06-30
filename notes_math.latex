@@ -531,6 +531,13 @@ $\dfrac{\int_a^b\!(f,g)\,\mathrm{d}t}{\int_a^b\!(g,g)\,\mathrm{d}t}g$
 
 \section{Finite Dimensional Vector Spaces}
 设$V$是$\mathbb{F=F}_p$上的向量空间
+\begin{definition}(\emph{basis})
+	向量空间$V$的线性无关子集，并且可以生成$V$
+\end{definition}
+\begin{example}\emph{(column space)}
+	设$A_{mn}$是$\mathbb{F}$上的矩阵，$\mathbf{b} \in col(A)$当
+	且仅当$A\mathbf{x = b}$有解
+\end{example}
 \begin{proposition}
 	$V$中元素的个数恰好是$p^{\mathrm{dim} V}$
 \end{proposition}
