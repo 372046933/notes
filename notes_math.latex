@@ -702,7 +702,7 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 
 \begin{proposition}
 	$W$在$V$中的cosets的形式是$\mathbf{v}+W, \mathbf{v} \in V$,特别的
-	,$\mathbf{v}+W = \mathbf{y}+W \Leftrightarrow \mathbf{v-w} \in W$
+	,$\mathbf{v}+W = \mathbf{y}+W \Leftrightarrow \mathbf{v-y} \in W$
 \end{proposition}
 \begin{proposition}
 	$\mathrm{codim}\,(W) = \mathrm{dim}\,(V/W) = \mathrm{dim}\,V -
@@ -718,6 +718,30 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 	$f+\mathcal{P}$可以认为是$f \mbox { \normalfont modulo the
 	polynomials}$，即和$f$相差仅为多项式的函数构成的等价类
 \end{example}
+
+\begin{proposition}
+	设$V$是$\mathbb{F}_p$上，维度为$n$的向量空间，$W$是维度为$k$的子空
+	间。那么\begin{enumerate}
+		\item $W$的每一个陪集的阶为$p^k$
+		\item 陪集的数目是$p^{n-k}$
+	\end{enumerate}
+\end{proposition}
+
+设 $\preceq$ 是集合$S$上的偏序关系，关系$\succeq, \prec, \succ,
+\perp,\parallel $
+的定义如下
+\begin{enumerate}
+	\item $x \succeq y$当且仅当$y \preceq x$
+	\item $x \prec y$当且仅当$x \preceq y$ and $x \neq y$
+	\item $x \succ y$当且仅当$y \prec x$
+	\item $x \perp y$当且仅当$x \preceq y$ or $y \preceq x$
+	\item $x \parallel y$当且仅当neither $x \preceq y$ or $y \preceq x$
+\end{enumerate}
+$x \perp y$表示$x,y$在偏序集中是相关的，$x \parallel y$表示$x,y$在偏序集
+中无关
+
+若$x \prec y$并且不存在$z \in S$，满足$x \prec z \prec y$，那么$y$ \emph{cover} $x$
+
 
 \chapter{Linear Coding Theory}
 \section{Linear Codes}
@@ -774,8 +798,14 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 \end{definition}
 \begin{proposition}
 	设$V,W$是$\mathbb{F}$上的向量空间，$L(V,W)$表示所有的线性变换$T:V
-	\rightarrow W$的集合，$L(V,W)$是一个向量空间，若$\mathrm{dim\,} V =
-	n, \mathrm{dim\,}W = m$，那么$L(V,W)$的维度是$mn$
+	\rightarrow W$的集合。那么$L(V,W)$是$\mathbb{F}$上的向量空间。若
+	$\mathrm{dim\,} V = n, \mathrm{dim\,}W = m$，那么$L(V,W)$的维度是
+	$mn$，并且$T_{ij}(\mathbf{v}_j) = \mathbf{w}_i(1 \leq i \leq n,
+	1 \leq j \leq m)$构成$L(V,W)$的基
+\end{proposition}
+\begin{proposition}
+	设$T:V\rightarrow W$是一个线性变换，$T$是单射当且仅当$T(\mathbf{x
+	})= \mathbf{0} \Leftrightarrow \mathbf{x=0}$
 \end{proposition}
 \begin{proposition}
 	每个线性变换$T:\mathbb{F}^n \rightarrow \mathbb{F}^m$对应一个$m
@@ -791,7 +821,8 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 \end{proof}
 \begin{definition}(\emph{Orthogonal Transformation})
 	$T: V \rightarrow V$，对任意$\mathbf{u,v} \in V$，满足
-	$(\mathbf{u, v}) = (T(\mathbf{u}), T(\mathbf{v}))$
+	$(\mathbf{u, v}) = (T(\mathbf{u}), T(\mathbf{v}))$。该线性变换的矩阵
+	是正交阵
 \end{definition}
 \begin{proposition}
 	projection $P_a(\mathbf{x}) = \mathbf{\left( \dfrac{a \cdot x}{a
@@ -804,8 +835,8 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 	{\mathbf{v}_1, \mathbf{v}_2, \cdots, \mathbf{v}_n}$，$W$的基为
 	$\mathcal{B}' = {\mathbf{w}_1, \mathbf{w}_2, \cdots,
 	\mathbf{w}_n}$，每个 $T(\mathbf{v}_j)$可以唯一表
-	达为\[ T(\mathbf{v_j}) = (\mathbf{w}_1, \mathbf{w}_2, \cdots
-		\mathbf{w}_m) \left( \begin{array}{ccc}
+	达为\[ T(\mathbf{v}_j) = (\mathbf{w}_1, \mathbf{w}_2, \cdots
+		\mathbf{w}_m) \left( \begin{array}{c}
 				a_{1j}\\
 				a_{2j}\\
 				\vdots\\
