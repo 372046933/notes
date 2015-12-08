@@ -742,7 +742,6 @@ $x \perp y$表示$x,y$在偏序集中是相关的，$x \parallel y$表示$x,y$�
 
 若$x \prec y$并且不存在$z \in S$，满足$x \prec z \prec y$，那么$y$ \emph{cover} $x$
 
-
 \chapter{Linear Coding Theory}
 \section{Linear Codes}
 \begin{definition}

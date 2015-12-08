@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{xeCJK,xunicode}
+\usepackage{syntonly,fontspec,graphicx}
+\usepackage{enumitem,verbatim,array,multirow}
+\usepackage[bookmarks]{hyperref}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{scalerel,booktabs}
+\hypersetup{
+	colorlinks,
+	linkcolor=blue
+}
+%\punctstyle{kaiming}
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+\setlength{\parindent}{2em}%中文缩进两个汉字位
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
+\setCJKmonofont{FangSong}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}{Example}[section]
+
+
+\begin{document}
+\part{Data Mining,Concepts and Techniques}
+\chapter{认识数据}
+\section{Basic Statistical Descriptions of Data}
+当观察值太多时，计算中位数是一个耗时的任务，此时可以\emph{approximate}。
+假设数据按照间隔分组，并且每组的个数已知。可用如下近似公式求中位数\[
+	median = L_1 + \left( \frac{N/2 - (\sum freq)_l}{freq_{median}}
+	\right)width
+\]
+其中，$L_1$表示中位区间的lower bound，$N$表示样本大小，$(\sum freq)_l$表
+示所有小于中位区间的样本数目，$freq_{median}$表示中位区间的样本数目，
+$width$表示中位区间的宽度
+
+真实数据经常不是对称的，要么正偏，要么负偏，\emph{偏度不能决定mean和
+median之间的关系}
+
+\subsection{Pythagorean means}
+\begin{itemize}
+	\item $AM(x_1, \ldots, x_n) = \frac{1}{n}(x_1+ \cdots + x_n)$
+	\item $GM(x_1, \ldots, x_n) = \sqrt[n]{x_1 \cdots x_n}$
+	\item $HM(x_1, \ldots, x_n) = \frac{n}{\frac{1}{x_1} + \cdots +
+		\frac{1}{x_n}}$
+\end{itemize}
+每种均值满足一下性质
+\begin{itemize}
+	\item 值保持 $M(x, \ldots, x) = x$
+	\item 一阶线性 $M(bx_1, \ldots, bx_n) = bM(x_1, \ldots, x_n)$
+	\item 均值 $min(x_1, \ldots, x_n) \leq M(x_1, \ldots, x_n) \leq
+		max(x_1, \ldots, x_n)$
+\end{itemize}
+当所有的$x_i$正定时，\[
+	min \leq HM \leq GM \leq AM \leq max
+\]
+\subsubsection{Weighted Arithmetic Mean}
+$\bar{x} = \frac{\sum\limits_{i=1}^n w_i x_i}{\sum\limits_{i=1}^n w_i}$
+\subsubsection{Harmonic Mean}
+$min(x_1, \ldots, x_n) \leq H(x_1, \ldots, x_n) \leq n\, min(x_1,
+\ldots, x_n)$
+
+
+	
+\section{Measuring Data Similarity and Dissimilarity}
+\subsection{Proximity Measures for Binary Attributes}
+\begin{table}
+	\begin{tabular}{c c c c c }
+		\toprule \\
+		&\multicolumn{4}{c}{\textbf{\emph{Object}} $j$} \\ \cmidrule{2-5}
+		\multirow{4}{*}{\textbf{\emph{Object}} $i$} && 1 & 0 & sum \\
+				&1 & $q$ & $r$ & $q+r$\\
+			   &0 & $s$ & $t$ & $s+t$\\
+			&sum & $q+s$ & $r+t$ & $p$\\
+		\bottomrule\\
+		\label{tab:contingency_table}
+	\end{tabular}
+	\caption{Contingency Table for Binary Attributes}
+\end{table}
+
+\emph{Simple Matching Coefficient} = $\frac{Number of Matching
+Attributes}{Number of Attributes} = \frac{q+t}{q+r+s+t}$
+
+\emph{Jaccard Coefficient} = $\frac{q}{q+r+s}$
+
+
+\end{document}
+
