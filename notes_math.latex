@@ -727,6 +727,21 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 	\end{enumerate}
 \end{proposition}
 
+设 $\preceq$ 是集合$S$上的偏序关系，关系$\succeq, \prec, \succ,
+\perp,\parallel $
+的定义如下
+\begin{enumerate}
+	\item $x \succeq y$当且仅当$y \preceq x$
+	\item $x \prec y$当且仅当$x \preceq y$ and $x \neq y$
+	\item $x \succ y$当且仅当$y \prec x$
+	\item $x \perp y$当且仅当$x \preceq y$ or $y \preceq x$
+	\item $x \parallel y$当且仅当neither $x \preceq y$ or $y \preceq x$
+\end{enumerate}
+$x \perp y$表示$x,y$在偏序集中是相关的，$x \parallel y$表示$x,y$在偏序集
+中无关
+
+若$x \prec y$并且不存在$z \in S$，满足$x \prec z \prec y$，那么$y$ \emph{cover} $x$
+
 \chapter{Linear Coding Theory}
 \section{Linear Codes}
 \begin{definition}
