@@ -851,13 +851,25 @@ $S$上的关系$E$是等价关系(\emph{equivalence relation})，当$\forall a,b
 
 \part{Complex Number}
 \chapter{Representation}
-复数的$a+bi$的矩阵表示为$\left( \begin{array}{cc}
+复数$i$的矩阵表示为
+$J = \left( \begin{array}{cc}
+		0 & -1\\
+		1 & 0
+\end{array} \right)$,
+$a+bi$的矩阵表示为
+$\left( \begin{array}{cc}
 		a & -b\\
 		b & a
-\end{array}\right)$\\
+\end{array}\right) = aI + bJ
+$\\
 $z^{-1} = \frac{\bar{z}}{a^2 + b^2}$\\
 $wz = (|w|e^{i\mu})(|z|e^{i\theta})$,两个复数的积：实部相乘，argument相
 加
+\begin{definition}{Algebraic Number}
+	a possibly complex number that is a root of a finite, non-zero
+	polynomial in one variable with rational coefficients.如果方程两边同
+	乘最小公分母，则为整数系数方程
+\end{definition}
 
 
 
